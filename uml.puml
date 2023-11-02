@@ -1,0 +1,584 @@
+@startuml
+class com.example.app1.Activity.MemberActivity {
+# void onCreate(Bundle)
+}
+class com.example.app1.test.BuildConfig {
++ {static} boolean DEBUG
++ {static} String APPLICATION_ID
++ {static} String BUILD_TYPE
+}
+class com.example.app1.databinding.ActivityAllProductsBinding {
+- ConstraintLayout rootView
++ TableLayout AdminAllProducts
++ ImageView backBtnAllProducts
++ Button callProductManage
++ TextView orderHeader
++ ScrollView scrollView
++ ConstraintLayout getRoot()
++ {static} ActivityAllProductsBinding inflate(LayoutInflater)
++ {static} ActivityAllProductsBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityAllProductsBinding bind(View)
+}
+class com.example.app1.databinding.ActivityAllCategoryBinding {
+- ConstraintLayout rootView
++ TableLayout AllCategoryTable
++ ImageView allCategoryBack
++ Button btnCategorySearch
++ Button btnDeleteCategory
++ Button btnEditCategory
++ TextView categorySearchResult
++ TextView orderHeader
++ ScrollView scrollView
++ EditText txtEditCategory
++ EditText txtSearchCategory
++ ConstraintLayout getRoot()
++ {static} ActivityAllCategoryBinding inflate(LayoutInflater)
++ {static} ActivityAllCategoryBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityAllCategoryBinding bind(View)
+}
+class com.example.app1.databinding.ActivityMemberBinding {
+- RelativeLayout rootView
++ ImageView ivMemberAllProducts
++ ImageView ivMemberOffers
++ ImageView ivMemberProfile
++ ImageView ivMyOrders
++ ImageView memberLogout
++ TextView titleView
++ RelativeLayout getRoot()
++ {static} ActivityMemberBinding inflate(LayoutInflater)
++ {static} ActivityMemberBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityMemberBinding bind(View)
+}
+class com.example.app1.Activity.MemberMyOrdersActivity {
+- DBHelper dbHelper
+~ EditText EditTextOrderCollected
+~ Button ButtonOrderCollected
+~ ImageView backButton
+# void onCreate(Bundle)
+}
+class com.example.app1.databinding.ActivityMemberOrderBinding {
+- ConstraintLayout rootView
++ TableLayout MyOrdersTable
++ ImageView backMyOrders
++ Button btnOrderCollected
++ TextView orderHeader
++ ScrollView scrollView
++ EditText txtOrderCollected
++ TextView updateOrderText
++ ConstraintLayout getRoot()
++ {static} ActivityMemberOrderBinding inflate(LayoutInflater)
++ {static} ActivityMemberOrderBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityMemberOrderBinding bind(View)
+}
+class com.example.app1.Adapters.OffersClass {
+- String offerName
+- String productName
+- int minimumQuantityReq
+- int offerRate
+- int ActualValue
+- int offerValue
++ String getProductName()
++ void setProductName(String)
++ String getOfferName()
++ void setOfferName(String)
++ int getMinimumQuantityReq()
++ void setMinimumQuantityReq(int)
++ int getOfferRate()
++ void setOfferRate(int)
++ int getActualValue()
++ void setActualValue(int)
++ int getOfferValue()
++ void setOfferValue(int)
+}
+class com.example.app1.DBClass.DBHelper {
+- Context con
+- SQLiteDatabase db
++ DBHelper openDB()
++ boolean RegisterUser(UserClass)
++ ArrayList<UserClass> ValidLogin(String,String)
+- void saveLoggedInUserId(Context,String)
++ String getLoggedInUserId(Context)
++ boolean updateUserName(String,String)
++ String getCurrentPassword(String)
++ boolean changePassword(String,String)
++ boolean deactivateUserAccount(String)
++ boolean CreateNewCategory(CategoryClass)
++ Vector<String> getCategory_Name()
++ ArrayList<CategoryClass> searchCategory(String)
++ String getCategory_Id(String)
++ ArrayList<CategoryClass> viewAllCategories()
++ boolean editCategoryName(String,String)
++ boolean deleteCategory(String)
++ boolean productIDAvailable(ProductClass)
++ boolean InsertProduct(ProductClass)
++ ArrayList<ProductClass> viewAllProducts()
++ boolean UpdateProductDetails(String,String,String,int)
++ boolean deleteProduct(String)
++ ArrayList<ProductClass> SearchProduct(String)
++ Vector<String> getProduct_Name()
++ String getProduct_ID(String)
++ boolean makeOrder(OrderClass)
++ ArrayList<OrderClass> viewAllOrders()
++ ArrayList<OrderClass> viewMyOrders(String)
++ boolean adminUpdateOrder(String,String)
++ boolean memberUpdateOrder(String)
++ boolean deleteOrder(String)
++ String getOrderStatus(String)
++ boolean offerNameAvailable(OffersClass)
++ boolean createNewOffer(OffersClass)
++ ArrayList<OffersClass> viewAllOffers()
++ ArrayList<OffersClass> getOfferDetails(String)
++ boolean deleteOffer(String)
++ boolean makeOrderFromOffer(String,int,String,int)
+}
+class com.example.app1.databinding.ActivityProductBinding {
+- ConstraintLayout rootView
++ ImageView backPAndC
++ Button btnNewCategory
++ Button btnNewProduct
++ Spinner spPCategory
++ EditText txtCCategoryID
++ EditText txtCCategoryName
++ EditText txtPPrice
++ EditText txtPProductId
++ EditText txtPProductName
++ ConstraintLayout getRoot()
++ {static} ActivityProductBinding inflate(LayoutInflater)
++ {static} ActivityProductBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityProductBinding bind(View)
+}
+class com.example.app1.Activity.ProductManageActivity {
+~ Spinner spinnerChangeCategory
+~ EditText editTextSearchProduct
+~ Button ButtonSearchProduct
+~ TextView textViewProductSearchResults
+~ ImageView BackButton
+- DBHelper dbHelper
+# void onCreate(Bundle)
+}
+class com.example.app1.Adapters.TableGenerator {
++ {static} void populateTable(Context,TableLayout,ArrayList<String>,ArrayList<ArrayList<String>>)
+- {static} void addHeaderCell(Context,TableRow,String)
+- {static} void addDataCell(Context,TableRow,String,int,float)
+- {static} TextView createTextView(Context,String,int,float)
+}
+class com.example.app1.Adapters.ProductClass {
+- String ProductID
+- String ProductName
+- String CategoryId
+- int Price
+- String CategoryName
++ String getProductID()
++ void setProductID(String)
++ String getProductName()
++ void setProductName(String)
++ String getCategoryId()
++ void setCategoryId(String)
++ int getPrice()
++ void setPrice(int)
++ String getCategoryName()
++ void setCategoryName(String)
+}
+class com.example.app1.ExampleUnitTest {
++ void addition_isCorrect()
+}
+class com.example.app1.Activity.AdminAllOffersActivity {
+- DBHelper dbHelper
+~ ImageView backButton
+# void onCreate(Bundle)
+}
+class com.example.app1.Activity.MemberOffersActivity {
+- DBHelper dbHelper
+~ EditText editTextOrderOffer
+~ Button ButtonOrderOffer
+~ ImageView backButton
+# void onCreate(Bundle)
+}
+class com.example.app1.databinding.ActivityOffersBinding {
+- ConstraintLayout rootView
++ ImageView backOffersA
++ Button btnCallAllOffers
++ Button btnDeleteOffer
++ Button btnNewOffer
++ Button btnOfferNameCheck
++ EditText offerName
++ TextView offerNameCheckTextView
++ EditText offerRate
++ EditText offerReqQuantity
++ Spinner spinnerProductName
++ ConstraintLayout getRoot()
++ {static} ActivityOffersBinding inflate(LayoutInflater)
++ {static} ActivityOffersBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityOffersBinding bind(View)
+}
+class com.example.app1.Adapters.OrderClass {
+- int orderID
+- String productID
+- int quantity
+- String userID
+- int total
+- String status
++ int getOrderID()
++ void setOrderID(int)
++ String getProductID()
++ void setProductID(String)
++ int getQuantity()
++ void setQuantity(int)
++ String getUserID()
++ void setUserID(String)
++ int getTotal()
++ void setTotal(int)
++ String getStatus()
++ void setStatus(String)
+}
+class com.example.app1.Adapters.UserClass {
+- String UserId
+- String Password
+- String UserType
+- String loggedUserId
++ String setLoggedUserId()
++ void setLoggedUserId(String)
++ String getUserId()
++ void setUserId(String)
++ String getPassword()
++ void setPassword(String)
++ String getUserType()
++ void setUserType(String)
+}
+class com.example.app1.Activity.OrdersActivity {
+- DBHelper dbHelper
+~ EditText EditTextOrderUpdate
+~ Button ButtonOrderUpdate
+~ RadioGroup StatusUpdate
+~ RadioButton SelectedRadioButton
+~ ImageView backButton
+# void onCreate(Bundle)
+}
+class com.example.app1.ExampleInstrumentedTest {
++ void useAppContext()
+}
+class com.example.app1.DBClass.DBConnector {
++ void onCreate(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
+}
+class com.example.app1.Activity.OffersActivity {
+- DBHelper dbHelper
+~ Button ButtonAllOffers
+~ EditText editTextOffername
+~ Spinner SpinnerProduct
+~ TextView offerNameAvailableText
+~ ImageView backButton
+# void onCreate(Bundle)
+}
+class com.example.app1.databinding.ActivityRegisterBinding {
+- RelativeLayout rootView
++ Button btnBackToRegister
++ Button btnUserRegRegister
++ TextView loginToRegisterText
++ ImageView loginregisterimage
++ EditText txtUserRegConfirmPassword
++ EditText txtUserRegPassword
++ EditText txtUserRegUserId
++ RelativeLayout getRoot()
++ {static} ActivityRegisterBinding inflate(LayoutInflater)
++ {static} ActivityRegisterBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityRegisterBinding bind(View)
+}
+class com.example.app1.databinding.ActivityMemberProfileBinding {
+- ConstraintLayout rootView
++ ImageView backBtnProfileM
++ Button btnChangePasswordM
++ Button btnDeactivateAccountM
++ Button btnEditUserNameM
++ TextView textViewUserNameM
++ EditText txtConfirmNewPasswordM
++ EditText txtCurrentPasswordM
++ EditText txtEditUserNameM
++ EditText txtNewPasswordM
++ ConstraintLayout getRoot()
++ {static} ActivityMemberProfileBinding inflate(LayoutInflater)
++ {static} ActivityMemberProfileBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityMemberProfileBinding bind(View)
+}
+class com.example.app1.databinding.ActivityMainBinding {
+- RelativeLayout rootView
++ Button btnCallLogin
++ TextView mainTopic
++ RelativeLayout getRoot()
++ {static} ActivityMainBinding inflate(LayoutInflater)
++ {static} ActivityMainBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityMainBinding bind(View)
+}
+class com.example.app1.databinding.ActivityProfileBinding {
+- ConstraintLayout rootView
++ ImageView backBtnProfileA
++ Button btnChangePassword
++ Button btnEditUserName
++ TextView textViewUserName
++ EditText txtConfirmNewPassword
++ EditText txtCurrentPassword
++ EditText txtEditUserName
++ EditText txtNewPassword
++ ConstraintLayout getRoot()
++ {static} ActivityProfileBinding inflate(LayoutInflater)
++ {static} ActivityProfileBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityProfileBinding bind(View)
+}
+class com.example.app1.databinding.ActivityMemberAllProductsBinding {
+- ConstraintLayout rootView
++ ImageView backBtnAllProductM
++ Button btnOrder
++ TableLayout memberAllProducts
++ TextView orderHeader
++ EditText orderProductID
++ EditText orderQuantity
++ ScrollView scrollView
++ TextView updateOrderText
++ ConstraintLayout getRoot()
++ {static} ActivityMemberAllProductsBinding inflate(LayoutInflater)
++ {static} ActivityMemberAllProductsBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityMemberAllProductsBinding bind(View)
+}
+class com.example.app1.databinding.ActivityLoginBinding {
+- RelativeLayout rootView
++ ImageView backToHome
++ Button btnCallRegister
++ Button btnForgotPassword
++ Button btnLLogin
++ TextView loginToRegisterText
++ ImageView loginregisterimage
++ EditText txtLPassword
++ EditText txtLUserId
++ RelativeLayout getRoot()
++ {static} ActivityLoginBinding inflate(LayoutInflater)
++ {static} ActivityLoginBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityLoginBinding bind(View)
+}
+class com.example.app1.databinding.ActivityProductManageBinding {
+- ConstraintLayout rootView
++ TextView ProductSearchResult
++ ImageView backMngProduct
++ Button btnDeleteProduct
++ Button btnEditProduct
++ Button btnSearchProduct
++ TextView orderHeader
++ Spinner spProductManage
++ EditText txtChangePrice
++ EditText txtChangeProductName
++ EditText txtSearchProduct
++ ConstraintLayout getRoot()
++ {static} ActivityProductManageBinding inflate(LayoutInflater)
++ {static} ActivityProductManageBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityProductManageBinding bind(View)
+}
+class com.example.app1.databinding.ActivityAdminAllOffersBinding {
+- ConstraintLayout rootView
++ TableLayout AdminAllOffersTable
++ ImageView adminAllOffersBack
++ TextView orderHeader
++ ScrollView scrollView
++ ConstraintLayout getRoot()
++ {static} ActivityAdminAllOffersBinding inflate(LayoutInflater)
++ {static} ActivityAdminAllOffersBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityAdminAllOffersBinding bind(View)
+}
+class com.example.app1.Activity.RegisterActivity {
+~ EditText EditTextUserId
+~ Button ButtonRegister
+- DBHelper dbHelper
+# void onCreate(Bundle)
+}
+class com.example.app1.Activity.MemberAllProductsActivity {
+- DBHelper dbHelper
+~ EditText editTextproductID
+~ Button btnOrder
+~ ImageView backButton
+# void onCreate(Bundle)
+}
+class com.example.app1.Activity.Admin {
+# void onCreate(Bundle)
+}
+class com.example.app1.Activity.CategoryProductActivity {
+~ EditText EditTextProductId
+~ Spinner SpinnerCategory
+~ ImageView backButton
+~ Button ButtonAddCategory
+- DBHelper dbHelper
+# void onCreate(Bundle)
+- void updateCategorySpinner()
+}
+class com.example.app1.Adapters.CategoryClass {
+- String CategoryID
+- String CategoryName
++ String getCategoryID()
++ void setCategoryID(String)
++ String getCategoryName()
++ void setCategoryName(String)
+}
+class com.example.app1.databinding.ActivityAdmin2Binding {
+- RelativeLayout rootView
++ ImageView adminLogout
++ ImageView ivAddProduct
++ ImageView ivAllCategory
++ ImageView ivAllProducts
++ ImageView ivOffers
++ ImageView ivOrder
++ ImageView ivProfile
++ TextView titleView
++ RelativeLayout getRoot()
++ {static} ActivityAdmin2Binding inflate(LayoutInflater)
++ {static} ActivityAdmin2Binding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityAdmin2Binding bind(View)
+}
+class com.example.app1.databinding.ActivityForgotPasswordBinding {
+- RelativeLayout rootView
++ ImageView backBtnReset
++ Button btnResetPassword
++ ImageView loginregisterimage
++ EditText txtNewPassword
++ EditText txtResetConfirmPassword
++ EditText txtResetUserId
++ RelativeLayout getRoot()
++ {static} ActivityForgotPasswordBinding inflate(LayoutInflater)
++ {static} ActivityForgotPasswordBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityForgotPasswordBinding bind(View)
+}
+class com.example.app1.Activity.MainActivity {
+~ Button ButtonCallLogin
+# void onCreate(Bundle)
+}
+class com.example.app1.Activity.LoginActivity {
+~ EditText EditTextUserId
+~ Button ButtonLogin
+- DBHelper dbHelper
+# void onCreate(Bundle)
+}
+class com.example.app1.Activity.ProfileActivityAdmin {
+~ EditText editTextChangeUserName
+~ Button ChangeUserName
+~ TextView userNameTextView
+~ ImageView BackButton
+- DBHelper dbHelper
+# void onCreate(Bundle)
+}
+class com.example.app1.Activity.AllProductsActivity {
+~ ImageView backButton
+~ Button BtnCallProductManage
+- DBHelper dbHelper
+# void onCreate(Bundle)
+}
+class com.example.app1.databinding.ActivityMemberOffersBinding {
+- ConstraintLayout rootView
++ ImageView backBtnOffersM
++ Button btnOrderOffer
++ TableLayout memberOffersTable
++ TextView orderHeader
++ ScrollView scrollView
++ EditText txtOrderOffer
++ TextView updateOrderText
++ ConstraintLayout getRoot()
++ {static} ActivityMemberOffersBinding inflate(LayoutInflater)
++ {static} ActivityMemberOffersBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityMemberOffersBinding bind(View)
+}
+class com.example.app1.databinding.ActivityOrdersBinding {
+- ConstraintLayout rootView
++ ImageView backOrdersA
++ Button deleteOrderButton
++ TextView deleteOrderText
++ EditText editTextDeleteOrder
++ EditText editTextUpdateOrder
++ TextView orderHeader
++ TableLayout orderTable
++ RadioButton radioButtonAccepted
++ RadioButton radioButtonCompleted
++ RadioGroup radioGroup
++ ScrollView scrollView
++ TextView updateOrderText
++ Button updateStatusButton
++ ConstraintLayout getRoot()
++ {static} ActivityOrdersBinding inflate(LayoutInflater)
++ {static} ActivityOrdersBinding inflate(LayoutInflater,ViewGroup,boolean)
++ {static} ActivityOrdersBinding bind(View)
+}
+class com.example.app1.Adapters.InvoiceClass {
+- String InvoiceId
+- String ProductId
+- int Qty
+- int Total
++ String getInvoiceId()
++ void setInvoiceId(String)
++ String getProductId()
++ void setProductId(String)
++ int getQty()
++ void setQty(int)
++ int getTotal()
++ void setTotal(int)
+}
+class com.example.app1.Activity.ForgotPasswordActivity {
+~ ImageView backButton
+# void onCreate(Bundle)
+}
+class com.example.app1.Activity.AllCategoryActivity {
+~ EditText editTextSearchCategory
+~ TextView CategorySearchResults
+~ ImageView backButton
+~ Button BtnSearchCategory
+- DBHelper dbHelper
+# void onCreate(Bundle)
+}
+class com.example.app1.Activity.MemberProfileActivity {
+~ EditText editTextChangeUserName
+~ Button ChangeUserName
+~ TextView userNameTextView
+~ ImageView BackButton
+- DBHelper dbHelper
+# void onCreate(Bundle)
+}
+class com.example.app1.BuildConfig {
++ {static} boolean DEBUG
++ {static} String APPLICATION_ID
++ {static} String BUILD_TYPE
++ {static} int VERSION_CODE
++ {static} String VERSION_NAME
+}
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.MemberActivity
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityAllProductsBinding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityAllCategoryBinding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityMemberBinding
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.MemberMyOrdersActivity
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityMemberOrderBinding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityProductBinding
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.ProductManageActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.AdminAllOffersActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.MemberOffersActivity
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityOffersBinding
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.OrdersActivity
+android.database.sqlite.SQLiteOpenHelper <|-- com.example.app1.DBClass.DBConnector
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.OffersActivity
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityRegisterBinding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityMemberProfileBinding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityMainBinding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityProfileBinding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityMemberAllProductsBinding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityLoginBinding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityProductManageBinding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityAdminAllOffersBinding
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.RegisterActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.MemberAllProductsActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.Admin
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.CategoryProductActivity
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityAdmin2Binding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityForgotPasswordBinding
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.MainActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.LoginActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.ProfileActivityAdmin
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.AllProductsActivity
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityMemberOffersBinding
+androidx.viewbinding.ViewBinding <|.. com.example.app1.databinding.ActivityOrdersBinding
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.ForgotPasswordActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.AllCategoryActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.app1.Activity.MemberProfileActivity
+@enduml

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.RegisterActivity">
+    <ImageView
+        android:id="@+id/loginregisterimage"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:src="@drawable/loginregister"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register in Here"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="35sp"
+        android:layout_marginTop="350dp">
+    </TextView>
+
+        <EditText
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/loginregisterimage"
+            android:id="@+id/txt_userReg_UserId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter User Id"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txt_userReg_UserId"
+            android:id="@+id/txt_userReg_Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txt_userReg_Password"
+            android:id="@+id/txt_userReg_ConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Confirm Password"
+            android:inputType="textPassword" />
+
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/txt_userReg_ConfirmPassword"
+            android:id="@+id/btn_userReg_Register"
+            android:layout_width="350dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textColor="@color/white"
+            android:background="@drawable/submit_button"/>
+
+        <TextView
+            android:layout_below="@id/btn_userReg_Register"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="85dp"
+            android:id="@+id/login_to_register_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an Account ?"
+            android:textStyle="italic"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <Button
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/btn_userReg_Register"
+            android:layout_toRightOf="@+id/login_to_register_text"
+            android:id="@+id/btn_Back_To_Register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Login"
+            android:textStyle="italic"
+         />
+
+</RelativeLayout>

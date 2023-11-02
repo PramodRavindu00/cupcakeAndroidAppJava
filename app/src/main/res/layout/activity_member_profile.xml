@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MemberProfileActivity"
+    android:background="@drawable/bg">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/back_btn_profileM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/backbutton"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Account"
+                android:textAlignment="center"
+                android:layout_marginTop="30dp"
+                android:textSize="35sp"
+                android:padding="5sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/textViewUserNameM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5sp"
+                android:layout_marginTop="30dp"
+                android:text=""
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/txt_edit_userNameM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Edit User Name"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
+                />
+            <Button
+                android:id="@+id/btn_edit_userNameM"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Edit User Name"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:background="@drawable/submit_button"
+                ></Button>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5sp"
+                android:layout_marginTop="30dp"
+                android:text="Change Password"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/txt_currentPasswordM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="Enter your current password"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
+                />
+            <EditText
+                android:id="@+id/txt_newPasswordM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="Enter new passwordM"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                />
+            <EditText
+                android:id="@+id/txt_confirm_newPasswordM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="Confirm new password"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                />
+            <Button
+                android:id="@+id/btn_changePasswordM"
+                android:layout_marginTop="30dp"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Change password"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/submit_button">
+            </Button>
+            <Button
+                android:id="@+id/btn_deactivateAccountM"
+                android:layout_marginTop="25dp"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Deactivate Account"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/delbtn"
+                android:layout_gravity="center"></Button>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
